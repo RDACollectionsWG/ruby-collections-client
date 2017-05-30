@@ -252,10 +252,9 @@ module CollectionsClient
     end
 
     def build_request_url(path)
-      # make sure we have leading and trailing slashes on the path
+      # make sure we have leading slash on the path
       path = path.sub(/^\//,'')
-      path = path.sub(/\/$/,'')
-      path = "/#{path}/"
+      path = "/#{path}"
       URI.encode(@config.base_url + path)
     end
 
