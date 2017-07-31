@@ -37,6 +37,7 @@ module CollectionsClient
     # @option opts [String] :f_model_type Filter response by the modelType property of the collection.
     # @option opts [String] :f_member_type Filter response by the data type of contained collection member. A collection will meet this requirement if any of its members are of the requested type.
     # @option opts [String] :f_ownership Filter response by the ownership property of the collection
+    # @option opts [String] :cursor cursor for iterating a prior response to this query
     # @return [CollectionResultSet]
     def collections_get(opts = {})
       data, _status_code, _headers = collections_get_with_http_info(opts)
@@ -49,6 +50,7 @@ module CollectionsClient
     # @option opts [String] :f_model_type Filter response by the modelType property of the collection.
     # @option opts [String] :f_member_type Filter response by the data type of contained collection member. A collection will meet this requirement if any of its members are of the requested type.
     # @option opts [String] :f_ownership Filter response by the ownership property of the collection
+    # @option opts [String] :cursor cursor for iterating a prior response to this query
     # @return [Array<(CollectionResultSet, Fixnum, Hash)>] CollectionResultSet data, response status code and response headers
     def collections_get_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -62,6 +64,7 @@ module CollectionsClient
       query_params[:'f_modelType'] = opts[:'f_model_type'] if !opts[:'f_model_type'].nil?
       query_params[:'f_memberType'] = opts[:'f_member_type'] if !opts[:'f_member_type'].nil?
       query_params[:'f_ownership'] = opts[:'f_ownership'] if !opts[:'f_ownership'].nil?
+      query_params[:'cursor'] = opts[:'cursor'] if !opts[:'cursor'].nil?
 
       # header parameters
       header_params = {}
@@ -518,7 +521,7 @@ module CollectionsClient
     # Update the properties of a Collection Object
     # This request updates the properties of the collection identified by the provided id. The updated collection properties must be supplied in the body of the request. The response may differ depending upon whether or not the  service features include support for syncrhonous actions.
     # @param id Persistent identifier for the collection
-    # @param content The properties of the colleciton to be updated.
+    # @param content The properties of the collection to be updated.
     # @param [Hash] opts the optional parameters
     # @return [CollectionObject]
     def collections_id_put(id, content, opts = {})
@@ -529,7 +532,7 @@ module CollectionsClient
     # Update the properties of a Collection Object
     # This request updates the properties of the collection identified by the provided id. The updated collection properties must be supplied in the body of the request. The response may differ depending upon whether or not the  service features include support for syncrhonous actions.
     # @param id Persistent identifier for the collection
-    # @param content The properties of the colleciton to be updated.
+    # @param content The properties of the collection to be updated.
     # @param [Hash] opts the optional parameters
     # @return [Array<(CollectionObject, Fixnum, Hash)>] CollectionObject data, response status code and response headers
     def collections_id_put_with_http_info(id, content, opts = {})
@@ -577,20 +580,20 @@ module CollectionsClient
     end
 
     # Create a new collection.
-    # This request adds a new collection to the collection store.  The Collection Object properties must be supplied in the  body of the request. 
+    # This request adds a new collection to the collection store. The Collection Object properties must be supplied in the  body of the request. 
     # @param content The properties of the collection.
     # @param [Hash] opts the optional parameters
-    # @return [CollectionObject]
+    # @return [Array<CollectionObject>]
     def collections_post(content, opts = {})
       data, _status_code, _headers = collections_post_with_http_info(content, opts)
       return data
     end
 
     # Create a new collection.
-    # This request adds a new collection to the collection store.  The Collection Object properties must be supplied in the  body of the request. 
+    # This request adds a new collection to the collection store. The Collection Object properties must be supplied in the  body of the request. 
     # @param content The properties of the collection.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(CollectionObject, Fixnum, Hash)>] CollectionObject data, response status code and response headers
+    # @return [Array<(Array<CollectionObject>, Fixnum, Hash)>] Array<CollectionObject> data, response status code and response headers
     def collections_post_with_http_info(content, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: CollectionsApi.collections_post ..."
@@ -626,7 +629,7 @@ module CollectionsClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'CollectionObject')
+        :return_type => 'Array<CollectionObject>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: CollectionsApi#collections_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

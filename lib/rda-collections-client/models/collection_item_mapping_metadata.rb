@@ -35,13 +35,17 @@ module CollectionsClient
     # The date the item was added to the collection.
     attr_accessor :date_added
 
+    # The date the item's metadata were last updated.
+    attr_accessor :date_updated
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'role' => :'role',
         :'index' => :'index',
-        :'date_added' => :'dateAdded'
+        :'date_added' => :'dateAdded',
+        :'date_updated' => :'dateUpdated'
       }
     end
 
@@ -50,7 +54,8 @@ module CollectionsClient
       {
         :'role' => :'String',
         :'index' => :'Integer',
-        :'date_added' => :'DateTime'
+        :'date_added' => :'DateTime',
+        :'date_updated' => :'DateTime'
       }
     end
 
@@ -72,6 +77,10 @@ module CollectionsClient
 
       if attributes.has_key?(:'dateAdded')
         self.date_added = attributes[:'dateAdded']
+      end
+
+      if attributes.has_key?(:'dateUpdated')
+        self.date_updated = attributes[:'dateUpdated']
       end
 
     end
@@ -96,7 +105,8 @@ module CollectionsClient
       self.class == o.class &&
           role == o.role &&
           index == o.index &&
-          date_added == o.date_added
+          date_added == o.date_added &&
+          date_updated == o.date_updated
     end
 
     # @see the `==` method
@@ -108,7 +118,7 @@ module CollectionsClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [role, index, date_added].hash
+      [role, index, date_added, date_updated].hash
     end
 
     # Builds the object from hash

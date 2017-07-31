@@ -33,7 +33,8 @@ api_instance = CollectionsClient::CollectionsApi.new
 opts = { 
   f_model_type: "f_model_type_example", # String | Filter response by the modelType property of the collection.
   f_member_type: "f_member_type_example", # String | Filter response by the data type of contained collection member. A collection will meet this requirement if any of its members are of the requested type.
-  f_ownership: "f_ownership_example" # String | Filter response by the ownership property of the collection
+  f_ownership: "f_ownership_example", # String | Filter response by the ownership property of the collection
+  cursor: "cursor_example" # String | cursor for iterating a prior response to this query
 }
 
 begin
@@ -52,6 +53,7 @@ Name | Type | Description  | Notes
  **f_model_type** | **String**| Filter response by the modelType property of the collection. | [optional] 
  **f_member_type** | **String**| Filter response by the data type of contained collection member. A collection will meet this requirement if any of its members are of the requested type. | [optional] 
  **f_ownership** | **String**| Filter response by the ownership property of the collection | [optional] 
+ **cursor** | **String**| cursor for iterating a prior response to this query | [optional] 
 
 ### Return type
 
@@ -467,7 +469,7 @@ api_instance = CollectionsClient::CollectionsApi.new
 
 id = "id_example" # String | Persistent identifier for the collection
 
-content = CollectionsClient::CollectionObject.new # CollectionObject | The properties of the colleciton to be updated.
+content = CollectionsClient::CollectionObject.new # CollectionObject | The properties of the collection to be updated.
 
 
 begin
@@ -484,7 +486,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Persistent identifier for the collection | 
- **content** | [**CollectionObject**](CollectionObject.md)| The properties of the colleciton to be updated. | 
+ **content** | [**CollectionObject**](CollectionObject.md)| The properties of the collection to be updated. | 
 
 ### Return type
 
@@ -502,11 +504,11 @@ Name | Type | Description  | Notes
 
 
 # **collections_post**
-> CollectionObject collections_post(content)
+> Array&lt;CollectionObject&gt; collections_post(content)
 
 Create a new collection.
 
-This request adds a new collection to the collection store.  The Collection Object properties must be supplied in the  body of the request. 
+This request adds a new collection to the collection store. The Collection Object properties must be supplied in the  body of the request. 
 
 ### Example
 ```ruby
@@ -520,7 +522,7 @@ end
 
 api_instance = CollectionsClient::CollectionsApi.new
 
-content = CollectionsClient::CollectionObject.new # CollectionObject | The properties of the collection.
+content = [CollectionsClient::CollectionObject.new] # Array<CollectionObject> | The properties of the collection.
 
 
 begin
@@ -536,11 +538,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **content** | [**CollectionObject**](CollectionObject.md)| The properties of the collection. | 
+ **content** | [**Array&lt;CollectionObject&gt;**](CollectionObject.md)| The properties of the collection. | 
 
 ### Return type
 
-[**CollectionObject**](CollectionObject.md)
+[**Array&lt;CollectionObject&gt;**](CollectionObject.md)
 
 ### Authorization
 

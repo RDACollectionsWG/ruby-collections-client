@@ -22,5 +22,5 @@ limitations under the License.
 =end
 
 module CollectionsClient
-  VERSION = "0.0.4"
+  VERSION = "1.0.0"
 end

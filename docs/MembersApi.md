@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 
 # **collections_id_members_post**
-> MemberItem collections_id_members_post(id, content)
+> Array&lt;MemberItem&gt; collections_id_members_post(id, content)
 
 Add a new member item to this collection
 
@@ -419,7 +419,7 @@ api_instance = CollectionsClient::MembersApi.new
 
 id = "id_example" # String | Identifier for the collection
 
-content = CollectionsClient::MemberItem.new # MemberItem | The properties of the member item to add to the collection. Id may be required.
+content = [CollectionsClient::MemberItem.new] # Array<MemberItem> | The properties of the member item to add to the collection. Id may be required.
 
 
 begin
@@ -436,11 +436,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **String**| Identifier for the collection | 
- **content** | [**MemberItem**](MemberItem.md)| The properties of the member item to add to the collection. Id may be required. | 
+ **content** | [**Array&lt;MemberItem&gt;**](MemberItem.md)| The properties of the member item to add to the collection. Id may be required. | 
 
 ### Return type
 
-[**MemberItem**](MemberItem.md)
+[**Array&lt;MemberItem&gt;**](MemberItem.md)
 
 ### Authorization
 

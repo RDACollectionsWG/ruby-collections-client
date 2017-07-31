@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**date_created** | **DateTime** | The date the collection was created. | 
 **ownership** | **String** | Indicates the owner of the Collection. Implementation is expected to use a controlled vocabulary or PIDs. | 
 **license** | **String** | Indicates the license that applies to the Collection. Implementation is expected to use a controlled vocabulary, stable URIs or PIDs of registered data types.  | 
 **model_type** | **String** | Identifies the model that the collection adheres to. Iimplementation is expected to use a controlled vocabulary, or PIDs of registered data types.  | 

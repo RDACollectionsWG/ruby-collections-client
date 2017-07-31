@@ -26,6 +26,9 @@ require 'date'
 module CollectionsClient
   # Functional Properties of the Collection
   class CollectionProperties
+    # The date the collection was created.
+    attr_accessor :date_created
+
     # Indicates the owner of the Collection. Implementation is expected to use a controlled vocabulary or PIDs.
     attr_accessor :ownership
 
@@ -48,6 +51,7 @@ module CollectionsClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'date_created' => :'dateCreated',
         :'ownership' => :'ownership',
         :'license' => :'license',
         :'model_type' => :'modelType',
@@ -60,6 +64,7 @@ module CollectionsClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'date_created' => :'DateTime',
         :'ownership' => :'String',
         :'license' => :'String',
         :'model_type' => :'String',
@@ -76,6 +81,10 @@ module CollectionsClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'dateCreated')
+        self.date_created = attributes[:'dateCreated']
+      end
 
       if attributes.has_key?(:'ownership')
         self.ownership = attributes[:'ownership']
@@ -117,6 +126,7 @@ module CollectionsClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @date_created.nil?
       return false if @ownership.nil?
       return false if @license.nil?
       return false if @model_type.nil?
@@ -130,6 +140,7 @@ module CollectionsClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          date_created == o.date_created &&
           ownership == o.ownership &&
           license == o.license &&
           model_type == o.model_type &&
@@ -147,7 +158,7 @@ module CollectionsClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [ownership, license, model_type, has_access_restrictions, member_of, description_ontology].hash
+      [date_created, ownership, license, model_type, has_access_restrictions, member_of, description_ontology].hash
     end
 
     # Builds the object from hash

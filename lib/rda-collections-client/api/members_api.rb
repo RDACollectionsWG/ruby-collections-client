@@ -495,7 +495,7 @@ module CollectionsClient
     # @param id Identifier for the collection
     # @param content The properties of the member item to add to the collection. Id may be required.
     # @param [Hash] opts the optional parameters
-    # @return [MemberItem]
+    # @return [Array<MemberItem>]
     def collections_id_members_post(id, content, opts = {})
       data, _status_code, _headers = collections_id_members_post_with_http_info(id, content, opts)
       return data
@@ -506,7 +506,7 @@ module CollectionsClient
     # @param id Identifier for the collection
     # @param content The properties of the member item to add to the collection. Id may be required.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MemberItem, Fixnum, Hash)>] MemberItem data, response status code and response headers
+    # @return [Array<(Array<MemberItem>, Fixnum, Hash)>] Array<MemberItem> data, response status code and response headers
     def collections_id_members_post_with_http_info(id, content, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MembersApi.collections_id_members_post ..."
@@ -544,7 +544,7 @@ module CollectionsClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'MemberItem')
+        :return_type => 'Array<MemberItem>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MembersApi#collections_id_members_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

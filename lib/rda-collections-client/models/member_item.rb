@@ -32,6 +32,9 @@ module CollectionsClient
     # Location at which the item data can be retrieved
     attr_accessor :location
 
+    # Human readable description
+    attr_accessor :description
+
     # URI of the data type of this item
     attr_accessor :datatype
 
@@ -46,6 +49,7 @@ module CollectionsClient
       {
         :'id' => :'id',
         :'location' => :'location',
+        :'description' => :'description',
         :'datatype' => :'datatype',
         :'ontology' => :'ontology',
         :'mappings' => :'mappings'
@@ -57,6 +61,7 @@ module CollectionsClient
       {
         :'id' => :'String',
         :'location' => :'String',
+        :'description' => :'String',
         :'datatype' => :'String',
         :'ontology' => :'String',
         :'mappings' => :'CollectionItemMappingMetadata'
@@ -77,6 +82,10 @@ module CollectionsClient
 
       if attributes.has_key?(:'location')
         self.location = attributes[:'location']
+      end
+
+      if attributes.has_key?(:'description')
+        self.description = attributes[:'description']
       end
 
       if attributes.has_key?(:'datatype')
@@ -115,6 +124,7 @@ module CollectionsClient
       self.class == o.class &&
           id == o.id &&
           location == o.location &&
+          description == o.description &&
           datatype == o.datatype &&
           ontology == o.ontology &&
           mappings == o.mappings
@@ -129,7 +139,7 @@ module CollectionsClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, location, datatype, ontology, mappings].hash
+      [id, location, description, datatype, ontology, mappings].hash
     end
 
     # Builds the object from hash
