@@ -1,7 +1,7 @@
 =begin
 #RDA Collections API
 
-#API Strawman for RDA Research Data Collections WG
+#The RDA Collections API Recommendation is a unified model and interface specification for CRUD operations on data collections, with particular observance of persistent identification and typing aspects. The recommendation allows building collections within diverse domains and then sharing or expanding them across disciplines.
 
 OpenAPI spec version: 1.0.0
 
@@ -38,8 +38,8 @@ module CollectionsClient
     # Indicates whether collection membership mutable (i.e. whether members can be added and removed)
     attr_accessor :membership_is_mutable
 
-    # Indicates whether collection metadata is mutable (i.e. can the metadata of this collection be changed)
-    attr_accessor :metadata_is_mutable
+    # Indicates whether collection properties are mutable (i.e. can the metadata of this collection be changed)
+    attr_accessor :properties_are_mutable
 
     # If specified, indicates that the collection is made up of homogenous items of the specified type. Type should be specified using the PID of a registered Data Type or a controlled vocabulary.
     attr_accessor :restricted_to_type
@@ -55,7 +55,7 @@ module CollectionsClient
         :'appends_to_end' => :'appendsToEnd',
         :'supports_roles' => :'supportsRoles',
         :'membership_is_mutable' => :'membershipIsMutable',
-        :'metadata_is_mutable' => :'metadataIsMutable',
+        :'properties_are_mutable' => :'propertiesAreMutable',
         :'restricted_to_type' => :'restrictedToType',
         :'max_length' => :'maxLength'
       }
@@ -68,7 +68,7 @@ module CollectionsClient
         :'appends_to_end' => :'BOOLEAN',
         :'supports_roles' => :'BOOLEAN',
         :'membership_is_mutable' => :'BOOLEAN',
-        :'metadata_is_mutable' => :'BOOLEAN',
+        :'properties_are_mutable' => :'BOOLEAN',
         :'restricted_to_type' => :'String',
         :'max_length' => :'Integer'
       }
@@ -106,10 +106,10 @@ module CollectionsClient
         self.membership_is_mutable = true
       end
 
-      if attributes.has_key?(:'metadataIsMutable')
-        self.metadata_is_mutable = attributes[:'metadataIsMutable']
+      if attributes.has_key?(:'propertiesAreMutable')
+        self.properties_are_mutable = attributes[:'propertiesAreMutable']
       else
-        self.metadata_is_mutable = true
+        self.properties_are_mutable = true
       end
 
       if attributes.has_key?(:'restrictedToType')
@@ -136,7 +136,7 @@ module CollectionsClient
       return false if @appends_to_end.nil?
       return false if @supports_roles.nil?
       return false if @membership_is_mutable.nil?
-      return false if @metadata_is_mutable.nil?
+      return false if @properties_are_mutable.nil?
       return false if @restricted_to_type.nil?
       return false if @max_length.nil?
       return true
@@ -151,7 +151,7 @@ module CollectionsClient
           appends_to_end == o.appends_to_end &&
           supports_roles == o.supports_roles &&
           membership_is_mutable == o.membership_is_mutable &&
-          metadata_is_mutable == o.metadata_is_mutable &&
+          properties_are_mutable == o.properties_are_mutable &&
           restricted_to_type == o.restricted_to_type &&
           max_length == o.max_length
     end
@@ -165,7 +165,7 @@ module CollectionsClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [is_ordered, appends_to_end, supports_roles, membership_is_mutable, metadata_is_mutable, restricted_to_type, max_length].hash
+      [is_ordered, appends_to_end, supports_roles, membership_is_mutable, properties_are_mutable, restricted_to_type, max_length].hash
     end
 
     # Builds the object from hash

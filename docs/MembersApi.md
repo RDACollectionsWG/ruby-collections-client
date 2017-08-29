@@ -4,20 +4,20 @@ All URIs are relative to *https://api.example.org/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**collections_id_members_get**](MembersApi.md#collections_id_members_get) | **GET** /collections/{id}/members | Get the members in a collection
-[**collections_id_members_mid_delete**](MembersApi.md#collections_id_members_mid_delete) | **DELETE** /collections/{id}/members/{mid} | Remove a collection member item.
-[**collections_id_members_mid_get**](MembersApi.md#collections_id_members_mid_get) | **GET** /collections/{id}/members/{mid} | Get the properties of a member item in a collection
-[**collections_id_members_mid_properties_property_delete**](MembersApi.md#collections_id_members_mid_properties_property_delete) | **DELETE** /collections/{id}/members/{mid}/properties/{property} | Delete a named property of a member item in a collection
-[**collections_id_members_mid_properties_property_get**](MembersApi.md#collections_id_members_mid_properties_property_get) | **GET** /collections/{id}/members/{mid}/properties/{property} | Get a named property of a member item in a collection
-[**collections_id_members_mid_properties_property_put**](MembersApi.md#collections_id_members_mid_properties_property_put) | **PUT** /collections/{id}/members/{mid}/properties/{property} | Update a named property of a member item in a collection
-[**collections_id_members_mid_put**](MembersApi.md#collections_id_members_mid_put) | **PUT** /collections/{id}/members/{mid} | Update the properties of a collection member item.
-[**collections_id_members_post**](MembersApi.md#collections_id_members_post) | **POST** /collections/{id}/members | Add a new member item to this collection
+[**collections_id_members_get**](MembersApi.md#collections_id_members_get) | **GET** /collections/{id}/members | Get the members in a collection. A successful request returns an HTTP 200 response code with a MemberResultSet object in the response body.
+[**collections_id_members_mid_delete**](MembersApi.md#collections_id_members_mid_delete) | **DELETE** /collections/{id}/members/{mid} | Remove a collection member item. A successful request returns an HTTP 200 response code wiht an empty response body.
+[**collections_id_members_mid_get**](MembersApi.md#collections_id_members_mid_get) | **GET** /collections/{id}/members/{mid} | Get the properties of a member item in a collection. A successful request returns an HTTP 200 response code with a MemberItem in the response body.
+[**collections_id_members_mid_properties_property_delete**](MembersApi.md#collections_id_members_mid_properties_property_delete) | **DELETE** /collections/{id}/members/{mid}/properties/{property} | Delete a named property of a member item in a collection. A successful request returns an HTTP 200 response code and empty response body.
+[**collections_id_members_mid_properties_property_get**](MembersApi.md#collections_id_members_mid_properties_property_get) | **GET** /collections/{id}/members/{mid}/properties/{property} | Get a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the requested MemberItem in teh response body.
+[**collections_id_members_mid_properties_property_put**](MembersApi.md#collections_id_members_mid_properties_property_put) | **PUT** /collections/{id}/members/{mid}/properties/{property} | Update a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the updated MemberItem in the response body.
+[**collections_id_members_mid_put**](MembersApi.md#collections_id_members_mid_put) | **PUT** /collections/{id}/members/{mid} | Update the properties of a collection member item. A successful request returns an HTTP 200 response code with the updated MemberItem in the response body.
+[**collections_id_members_post**](MembersApi.md#collections_id_members_post) | **POST** /collections/{id}/members | Add one or more new member items to this collection. A successful request returns an  HTTP 201 response code with an array of the new added MemberItems in the response body.
 
 
 # **collections_id_members_get**
 > MemberResultSet collections_id_members_get(id, opts)
 
-Get the members in a collection
+Get the members in a collection. A successful request returns an HTTP 200 response code with a MemberResultSet object in the response body.
 
 This request returns the list of members contained in a collection.  This may be a complete list, or if the service features include support for pagination, the cursors in the response may be used to iterate backwards and forwards through pages of partial results. Query parameters may be used to supply filtering criteria for the response. When combining filters of different types, the boolean AND will be used. When combining multiple instances of filters of the same type, the boolean OR will be used.
 
@@ -40,7 +40,7 @@ opts = {
 }
 
 begin
-  #Get the members in a collection
+  #Get the members in a collection. A successful request returns an HTTP 200 response code with a MemberResultSet object in the response body.
   result = api_instance.collections_id_members_get(id, opts)
   p result
 rescue CollectionsClient::ApiError => e
@@ -78,7 +78,7 @@ No authorization required
 # **collections_id_members_mid_delete**
 > collections_id_members_mid_delete(id, mid)
 
-Remove a collection member item.
+Remove a collection member item. A successful request returns an HTTP 200 response code wiht an empty response body.
 
 Removes a member item from a collection. The response may differ depending upon whether or not the  service features include support for asynchronous actions.
 
@@ -100,7 +100,7 @@ mid = "mid_example" # String | Identifier for the collection member
 
 
 begin
-  #Remove a collection member item.
+  #Remove a collection member item. A successful request returns an HTTP 200 response code wiht an empty response body.
   api_instance.collections_id_members_mid_delete(id, mid)
 rescue CollectionsClient::ApiError => e
   puts "Exception when calling MembersApi->collections_id_members_mid_delete: #{e}"
@@ -132,7 +132,7 @@ nil (empty response body)
 # **collections_id_members_mid_get**
 > MemberItem collections_id_members_mid_get(id, mid)
 
-Get the properties of a member item in a collection
+Get the properties of a member item in a collection. A successful request returns an HTTP 200 response code with a MemberItem in the response body.
 
 This request retrieves the properties of a specific member item from a collection
 
@@ -149,7 +149,7 @@ mid = "mid_example" # String | Identifier for the collection member item.
 
 
 begin
-  #Get the properties of a member item in a collection
+  #Get the properties of a member item in a collection. A successful request returns an HTTP 200 response code with a MemberItem in the response body.
   result = api_instance.collections_id_members_mid_get(id, mid)
   p result
 rescue CollectionsClient::ApiError => e
@@ -182,7 +182,7 @@ No authorization required
 # **collections_id_members_mid_properties_property_delete**
 > collections_id_members_mid_properties_property_delete(id, mid, property)
 
-Delete a named property of a member item in a collection
+Delete a named property of a member item in a collection. A successful request returns an HTTP 200 response code and empty response body.
 
 This request deletes a specific named property of a specific member item from a collection
 
@@ -201,7 +201,7 @@ property = "property_example" # String | the name of a property to update
 
 
 begin
-  #Delete a named property of a member item in a collection
+  #Delete a named property of a member item in a collection. A successful request returns an HTTP 200 response code and empty response body.
   api_instance.collections_id_members_mid_properties_property_delete(id, mid, property)
 rescue CollectionsClient::ApiError => e
   puts "Exception when calling MembersApi->collections_id_members_mid_properties_property_delete: #{e}"
@@ -234,7 +234,7 @@ No authorization required
 # **collections_id_members_mid_properties_property_get**
 > MemberItem collections_id_members_mid_properties_property_get(id, mid, property)
 
-Get a named property of a member item in a collection
+Get a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the requested MemberItem in teh response body.
 
 This request retrieves a specific named property of a specific member item from a collection
 
@@ -253,7 +253,7 @@ property = "property_example" # String | the name of a property to retrieve (e.g
 
 
 begin
-  #Get a named property of a member item in a collection
+  #Get a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the requested MemberItem in teh response body.
   result = api_instance.collections_id_members_mid_properties_property_get(id, mid, property)
   p result
 rescue CollectionsClient::ApiError => e
@@ -287,7 +287,7 @@ No authorization required
 # **collections_id_members_mid_properties_property_put**
 > MemberItem collections_id_members_mid_properties_property_put(id, mid, property, content)
 
-Update a named property of a member item in a collection
+Update a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the updated MemberItem in the response body.
 
 This request updates a specific named property of a specific member item from a collection
 
@@ -308,7 +308,7 @@ content = "content_example" # String | new property value
 
 
 begin
-  #Update a named property of a member item in a collection
+  #Update a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the updated MemberItem in the response body.
   result = api_instance.collections_id_members_mid_properties_property_put(id, mid, property, content)
   p result
 rescue CollectionsClient::ApiError => e
@@ -343,7 +343,7 @@ No authorization required
 # **collections_id_members_mid_put**
 > MemberItem collections_id_members_mid_put(id, mid, content)
 
-Update the properties of a collection member item.
+Update the properties of a collection member item. A successful request returns an HTTP 200 response code with the updated MemberItem in the response body.
 
 This request updates the properties of a collection member item.  The updated member  properties must be supplied in the body of the request. The response may differ  depending upon whether or not the  service features include support  for asynchronous actions.
 
@@ -367,7 +367,7 @@ content = CollectionsClient::CollectionObject.new # CollectionObject | collectio
 
 
 begin
-  #Update the properties of a collection member item.
+  #Update the properties of a collection member item. A successful request returns an HTTP 200 response code with the updated MemberItem in the response body.
   result = api_instance.collections_id_members_mid_put(id, mid, content)
   p result
 rescue CollectionsClient::ApiError => e
@@ -401,7 +401,7 @@ Name | Type | Description  | Notes
 # **collections_id_members_post**
 > Array&lt;MemberItem&gt; collections_id_members_post(id, content)
 
-Add a new member item to this collection
+Add one or more new member items to this collection. A successful request returns an  HTTP 201 response code with an array of the new added MemberItems in the response body.
 
 This request adds a new member item to a collection. If the service features include support for PID assignment to member items, then if no id is supplied for the item it  will be assigned automatically.  
 
@@ -423,7 +423,7 @@ content = [CollectionsClient::MemberItem.new] # Array<MemberItem> | The properti
 
 
 begin
-  #Add a new member item to this collection
+  #Add one or more new member items to this collection. A successful request returns an  HTTP 201 response code with an array of the new added MemberItems in the response body.
   result = api_instance.collections_id_members_post(id, content)
   p result
 rescue CollectionsClient::ApiError => e

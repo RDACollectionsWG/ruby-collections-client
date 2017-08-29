@@ -3,7 +3,7 @@
 =begin
 #RDA Collections API
 
-#API Strawman for RDA Research Data Collections WG
+#The RDA Collections API Recommendation is a unified model and interface specification for CRUD operations on data collections, with particular observance of persistent identification and typing aspects. The recommendation allows building collections within diverse domains and then sharing or expanding them across disciplines.
 
 OpenAPI spec version: 1.0.0
 
@@ -35,6 +35,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/RDACollectionsWG/ruby-collections-client"
   s.summary     = "A ruby wrapper for the RDA Collections API Client"
   s.description = "This gem maps to the RDA Collections swagger API"
+  s.description = "The RDA Collections API Recommendation is a unified model and interface specification for CRUD operations on data collections, with particular observance of persistent identification and typing aspects. The recommendation allows building collections within diverse domains and then sharing or expanding them across disciplines."
   s.license     = "Apache 2.0"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'

@@ -1,7 +1,7 @@
 =begin
 #RDA Collections API
 
-#API Strawman for RDA Research Data Collections WG
+#The RDA Collections API Recommendation is a unified model and interface specification for CRUD operations on data collections, with particular observance of persistent identification and typing aspects. The recommendation allows building collections within diverse domains and then sharing or expanding them across disciplines.
 
 OpenAPI spec version: 1.0.0
 
@@ -31,7 +31,7 @@ module CollectionsClient
       @api_client = api_client
     end
 
-    # Get a list of all collections
+    # Get a list of all collections provided by this service. A successful request returns an HTTP 200 response code with a CollectionResultSet object in the response body.
     # This request returns a list of the collections provided by this service.  This may be a complete list, or if the service features include support for pagination, the cursors in the response may be used to iterate backwards and forwards through pages of partial results. Query parameters may be used to supply filtering criteria for the response. When combining filters of different types, the boolean AND will be used. When combining multiple instances of filters of the same type, the boolean OR will be used.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :f_model_type Filter response by the modelType property of the collection.
@@ -44,7 +44,7 @@ module CollectionsClient
       return data
     end
 
-    # Get a list of all collections
+    # Get a list of all collections provided by this service. A successful request returns an HTTP 200 response code with a CollectionResultSet object in the response body.
     # This request returns a list of the collections provided by this service.  This may be a complete list, or if the service features include support for pagination, the cursors in the response may be used to iterate backwards and forwards through pages of partial results. Query parameters may be used to supply filtering criteria for the response. When combining filters of different types, the boolean AND will be used. When combining multiple instances of filters of the same type, the boolean OR will be used.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :f_model_type Filter response by the modelType property of the collection.
@@ -96,7 +96,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Get the capabilities of this collection
+    # Get the capabilities of this collection. A successful request returns an HTTP 200 response code with a CollectionCapabilities object in the response body.
     # This request returns the capabilities metadata for the collection identified by the supplied id. The collection capabilities describe the actions and operations that are available for this collection.
     # @param id Identifier for the collection
     # @param [Hash] opts the optional parameters
@@ -106,7 +106,7 @@ module CollectionsClient
       return data
     end
 
-    # Get the capabilities of this collection
+    # Get the capabilities of this collection. A successful request returns an HTTP 200 response code with a CollectionCapabilities object in the response body.
     # This request returns the capabilities metadata for the collection identified by the supplied id. The collection capabilities describe the actions and operations that are available for this collection.
     # @param id Identifier for the collection
     # @param [Hash] opts the optional parameters
@@ -153,7 +153,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Delete a collection
+    # Delete a collection. A successful request returns an HTTP 200 response code with an  empty response body.
     # This request deletes the collection idenified by the provided id from the collection store. The response may differ depending upon whether or not the service features include support for synchronous actions.
     # @param id identifier for the collection
     # @param [Hash] opts the optional parameters
@@ -163,7 +163,7 @@ module CollectionsClient
       return nil
     end
 
-    # Delete a collection
+    # Delete a collection. A successful request returns an HTTP 200 response code with an  empty response body.
     # This request deletes the collection idenified by the provided id from the collection store. The response may differ depending upon whether or not the service features include support for synchronous actions.
     # @param id identifier for the collection
     # @param [Hash] opts the optional parameters
@@ -209,7 +209,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Get the properties of a specific collection.
+    # Get the properties of a specific collection. A successful request returns an HTTP 200 response code with the requested CollectionObject in the response body.
     # This request returns the Collection Object Properties for the collection identified by the provided id.
     # @param id Identifier for the collection
     # @param [Hash] opts the optional parameters
@@ -219,7 +219,7 @@ module CollectionsClient
       return data
     end
 
-    # Get the properties of a specific collection.
+    # Get the properties of a specific collection. A successful request returns an HTTP 200 response code with the requested CollectionObject in the response body.
     # This request returns the Collection Object Properties for the collection identified by the provided id.
     # @param id Identifier for the collection
     # @param [Hash] opts the optional parameters
@@ -266,7 +266,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Find member objects in a collection which match the supplied member object
+    # Find member objects in a collection which match the supplied member object. A successful request returns an HTTP 200 response code with a CollectionResultSet object in the response body.
     # This request accepts as input the complete or partial properties of a member object and returns a ResultSet containing any objects which were deemed to 'match' the supplied properties among the members of the identified collection. If the service features include support for pagination, a cursor may be supplied to iterate backwards and forwards through paged results from prior executions of this query.
     # @param id identifier for the collection
     # @param member_properties the member item properties to use when matching
@@ -278,7 +278,7 @@ module CollectionsClient
       return data
     end
 
-    # Find member objects in a collection which match the supplied member object
+    # Find member objects in a collection which match the supplied member object. A successful request returns an HTTP 200 response code with a CollectionResultSet object in the response body.
     # This request accepts as input the complete or partial properties of a member object and returns a ResultSet containing any objects which were deemed to &#39;match&#39; the supplied properties among the members of the identified collection. If the service features include support for pagination, a cursor may be supplied to iterate backwards and forwards through paged results from prior executions of this query.
     # @param id identifier for the collection
     # @param member_properties the member item properties to use when matching
@@ -330,7 +330,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Flattens the collection
+    # Flattens the collection. A successful request returns  an HTTP 200 response code with a MemberResultSet object in the response body.
     # This request returns a resultset which is a flattened representation of a collection of collections into a single collection.
     # @param id Identifier for the collection to be flattened
     # @param [Hash] opts the optional parameters
@@ -341,7 +341,7 @@ module CollectionsClient
       return data
     end
 
-    # Flattens the collection
+    # Flattens the collection. A successful request returns  an HTTP 200 response code with a MemberResultSet object in the response body.
     # This request returns a resultset which is a flattened representation of a collection of collections into a single collection.
     # @param id Identifier for the collection to be flattened
     # @param [Hash] opts the optional parameters
@@ -390,7 +390,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Retrieve the members at the intersection of two collections
+    # Retrieve the members at the intersection of two collections. A successful request returns  an HTTP 200 response code with a CollectionResultSet object in the response body.
     # This request returns a resultset containing the members at the intersection of two collections. If the service features include support for pagination, a cursor may be supplied to iterate backwards and forwards through paged results from prior executions of this query. The response may be an empty set.
     # @param id Identifier for the first collection in the operation
     # @param other_id Identifier for the second collection in the operation
@@ -402,7 +402,7 @@ module CollectionsClient
       return data
     end
 
-    # Retrieve the members at the intersection of two collections
+    # Retrieve the members at the intersection of two collections. A successful request returns  an HTTP 200 response code with a CollectionResultSet object in the response body.
     # This request returns a resultset containing the members at the intersection of two collections. If the service features include support for pagination, a cursor may be supplied to iterate backwards and forwards through paged results from prior executions of this query. The response may be an empty set.
     # @param id Identifier for the first collection in the operation
     # @param other_id Identifier for the second collection in the operation
@@ -454,7 +454,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Retrieve the union of two collections
+    # Retrieve the union of two collections. A successful request returns  an HTTP 200 response code with a CollectionResultSet object in the response body.
     # This request returns a resultset containing the members at the union of two collections. If the service features include support for pagination, a cursor may be supplied to iterate backwards and forwards through paged results from prior executions of this query. The response may be an empty set.
     # @param id Identifier for the first collection in the operation
     # @param other_id Identifier for the second collection in the operation
@@ -466,7 +466,7 @@ module CollectionsClient
       return data
     end
 
-    # Retrieve the union of two collections
+    # Retrieve the union of two collections. A successful request returns  an HTTP 200 response code with a CollectionResultSet object in the response body.
     # This request returns a resultset containing the members at the union of two collections. If the service features include support for pagination, a cursor may be supplied to iterate backwards and forwards through paged results from prior executions of this query. The response may be an empty set.
     # @param id Identifier for the first collection in the operation
     # @param other_id Identifier for the second collection in the operation
@@ -518,7 +518,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Update the properties of a Collection Object
+    # Update the properties of a Collection Object. A successful request returns an HTTP 200 response code with the updated CollectionObject in the response body.
     # This request updates the properties of the collection identified by the provided id. The updated collection properties must be supplied in the body of the request. The response may differ depending upon whether or not the  service features include support for syncrhonous actions.
     # @param id Persistent identifier for the collection
     # @param content The properties of the collection to be updated.
@@ -529,7 +529,7 @@ module CollectionsClient
       return data
     end
 
-    # Update the properties of a Collection Object
+    # Update the properties of a Collection Object. A successful request returns an HTTP 200 response code with the updated CollectionObject in the response body.
     # This request updates the properties of the collection identified by the provided id. The updated collection properties must be supplied in the body of the request. The response may differ depending upon whether or not the  service features include support for syncrhonous actions.
     # @param id Persistent identifier for the collection
     # @param content The properties of the collection to be updated.
@@ -579,8 +579,8 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Create a new collection.
-    # This request adds a new collection to the collection store. The Collection Object properties must be supplied in the  body of the request. 
+    # Create one or more new collections. Successful requests will return an HTTP 201 response code with an array of the newly created CollectionObject(s) in the response body.
+    # This request adds one or more new collections to the collection store. The Collection Objects to be created  must be supplied in the body of the request. 
     # @param content The properties of the collection.
     # @param [Hash] opts the optional parameters
     # @return [Array<CollectionObject>]
@@ -589,8 +589,8 @@ module CollectionsClient
       return data
     end
 
-    # Create a new collection.
-    # This request adds a new collection to the collection store. The Collection Object properties must be supplied in the  body of the request. 
+    # Create one or more new collections. Successful requests will return an HTTP 201 response code with an array of the newly created CollectionObject(s) in the response body.
+    # This request adds one or more new collections to the collection store. The Collection Objects to be created  must be supplied in the body of the request. 
     # @param content The properties of the collection.
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<CollectionObject>, Fixnum, Hash)>] Array<CollectionObject> data, response status code and response headers

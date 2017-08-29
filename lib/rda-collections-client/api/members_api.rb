@@ -1,7 +1,7 @@
 =begin
 #RDA Collections API
 
-#API Strawman for RDA Research Data Collections WG
+#The RDA Collections API Recommendation is a unified model and interface specification for CRUD operations on data collections, with particular observance of persistent identification and typing aspects. The recommendation allows building collections within diverse domains and then sharing or expanding them across disciplines.
 
 OpenAPI spec version: 1.0.0
 
@@ -31,7 +31,7 @@ module CollectionsClient
       @api_client = api_client
     end
 
-    # Get the members in a collection
+    # Get the members in a collection. A successful request returns an HTTP 200 response code with a MemberResultSet object in the response body.
     # This request returns the list of members contained in a collection.  This may be a complete list, or if the service features include support for pagination, the cursors in the response may be used to iterate backwards and forwards through pages of partial results. Query parameters may be used to supply filtering criteria for the response. When combining filters of different types, the boolean AND will be used. When combining multiple instances of filters of the same type, the boolean OR will be used.
     # @param id Identifier for the collection
     # @param [Hash] opts the optional parameters
@@ -47,7 +47,7 @@ module CollectionsClient
       return data
     end
 
-    # Get the members in a collection
+    # Get the members in a collection. A successful request returns an HTTP 200 response code with a MemberResultSet object in the response body.
     # This request returns the list of members contained in a collection.  This may be a complete list, or if the service features include support for pagination, the cursors in the response may be used to iterate backwards and forwards through pages of partial results. Query parameters may be used to supply filtering criteria for the response. When combining filters of different types, the boolean AND will be used. When combining multiple instances of filters of the same type, the boolean OR will be used.
     # @param id Identifier for the collection
     # @param [Hash] opts the optional parameters
@@ -106,7 +106,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Remove a collection member item.
+    # Remove a collection member item. A successful request returns an HTTP 200 response code wiht an empty response body.
     # Removes a member item from a collection. The response may differ depending upon whether or not the  service features include support for asynchronous actions.
     # @param id Persistent identifier for the collection
     # @param mid Identifier for the collection member
@@ -117,7 +117,7 @@ module CollectionsClient
       return nil
     end
 
-    # Remove a collection member item.
+    # Remove a collection member item. A successful request returns an HTTP 200 response code wiht an empty response body.
     # Removes a member item from a collection. The response may differ depending upon whether or not the  service features include support for asynchronous actions.
     # @param id Persistent identifier for the collection
     # @param mid Identifier for the collection member
@@ -166,7 +166,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Get the properties of a member item in a collection
+    # Get the properties of a member item in a collection. A successful request returns an HTTP 200 response code with a MemberItem in the response body.
     # This request retrieves the properties of a specific member item from a collection
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member item.
@@ -177,7 +177,7 @@ module CollectionsClient
       return data
     end
 
-    # Get the properties of a member item in a collection
+    # Get the properties of a member item in a collection. A successful request returns an HTTP 200 response code with a MemberItem in the response body.
     # This request retrieves the properties of a specific member item from a collection
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member item.
@@ -227,7 +227,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Delete a named property of a member item in a collection
+    # Delete a named property of a member item in a collection. A successful request returns an HTTP 200 response code and empty response body.
     # This request deletes a specific named property of a specific member item from a collection
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member item.
@@ -239,7 +239,7 @@ module CollectionsClient
       return nil
     end
 
-    # Delete a named property of a member item in a collection
+    # Delete a named property of a member item in a collection. A successful request returns an HTTP 200 response code and empty response body.
     # This request deletes a specific named property of a specific member item from a collection
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member item.
@@ -291,7 +291,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Get a named property of a member item in a collection
+    # Get a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the requested MemberItem in teh response body.
     # This request retrieves a specific named property of a specific member item from a collection
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member item.
@@ -303,7 +303,7 @@ module CollectionsClient
       return data
     end
 
-    # Get a named property of a member item in a collection
+    # Get a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the requested MemberItem in teh response body.
     # This request retrieves a specific named property of a specific member item from a collection
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member item.
@@ -356,7 +356,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Update a named property of a member item in a collection
+    # Update a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the updated MemberItem in the response body.
     # This request updates a specific named property of a specific member item from a collection
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member item.
@@ -369,7 +369,7 @@ module CollectionsClient
       return data
     end
 
-    # Update a named property of a member item in a collection
+    # Update a named property of a member item in a collection. A successful request returns an HTTP 200 response code and the updated MemberItem in the response body.
     # This request updates a specific named property of a specific member item from a collection
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member item.
@@ -425,7 +425,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Update the properties of a collection member item.
+    # Update the properties of a collection member item. A successful request returns an HTTP 200 response code with the updated MemberItem in the response body.
     # This request updates the properties of a collection member item.  The updated member  properties must be supplied in the body of the request. The response may differ  depending upon whether or not the  service features include support  for asynchronous actions.
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member
@@ -437,7 +437,7 @@ module CollectionsClient
       return data
     end
 
-    # Update the properties of a collection member item.
+    # Update the properties of a collection member item. A successful request returns an HTTP 200 response code with the updated MemberItem in the response body.
     # This request updates the properties of a collection member item.  The updated member  properties must be supplied in the body of the request. The response may differ  depending upon whether or not the  service features include support  for asynchronous actions.
     # @param id Identifier for the collection
     # @param mid Identifier for the collection member
@@ -490,7 +490,7 @@ module CollectionsClient
       return data, status_code, headers
     end
 
-    # Add a new member item to this collection
+    # Add one or more new member items to this collection. A successful request returns an  HTTP 201 response code with an array of the new added MemberItems in the response body.
     # This request adds a new member item to a collection. If the service features include support for PID assignment to member items, then if no id is supplied for the item it  will be assigned automatically.  
     # @param id Identifier for the collection
     # @param content The properties of the member item to add to the collection. Id may be required.
@@ -501,7 +501,7 @@ module CollectionsClient
       return data
     end
 
-    # Add a new member item to this collection
+    # Add one or more new member items to this collection. A successful request returns an  HTTP 201 response code with an array of the new added MemberItems in the response body.
     # This request adds a new member item to a collection. If the service features include support for PID assignment to member items, then if no id is supplied for the item it  will be assigned automatically.  
     # @param id Identifier for the collection
     # @param content The properties of the member item to add to the collection. Id may be required.

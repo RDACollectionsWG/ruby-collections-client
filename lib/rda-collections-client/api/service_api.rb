@@ -1,7 +1,7 @@
 =begin
 #RDA Collections API
 
-#API Strawman for RDA Research Data Collections WG
+#The RDA Collections API Recommendation is a unified model and interface specification for CRUD operations on data collections, with particular observance of persistent identification and typing aspects. The recommendation allows building collections within diverse domains and then sharing or expanding them across disciplines.
 
 OpenAPI spec version: 1.0.0
 
@@ -31,7 +31,7 @@ module CollectionsClient
       @api_client = api_client
     end
 
-    # Gets the service-level features.
+    # Gets the service-level features. A successful request returns an HTTP 200 response code with the ServiceFeatures object in the response body.
     # This request returns the service-level features. Examples of service-level features might include whether or not the service supports assignment of PIDs for collection members, whether it supports pagination and cursors, whether it enforces  access controls, etc.
     # @param [Hash] opts the optional parameters
     # @return [ServiceFeatures]
@@ -40,7 +40,7 @@ module CollectionsClient
       return data
     end
 
-    # Gets the service-level features.
+    # Gets the service-level features. A successful request returns an HTTP 200 response code with the ServiceFeatures object in the response body.
     # This request returns the service-level features. Examples of service-level features might include whether or not the service supports assignment of PIDs for collection members, whether it supports pagination and cursors, whether it enforces  access controls, etc.
     # @param [Hash] opts the optional parameters
     # @return [Array<(ServiceFeatures, Fixnum, Hash)>] ServiceFeatures data, response status code and response headers
